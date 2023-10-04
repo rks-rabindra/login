@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="Jack.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="container">
+        <div class="center">
+            <h1>Login to Marutiflex</h1>
+            <input type="text"  name="" placeholder="User Name" id="UserName">
+            <input type="password"  placeholder="Password" id="Password">
+            <input  onclick="Login()" type="submit">
+            <p id="status"> <br></p>
+        </div>
+    </div>
+    <script>
+        document.body.addEventListener('keydown',function(event){
+            if(event.keyCode==13){
+                Login();
+            }
+        })
+
+        function Login() {
+            var user = document.getElementById('UserName');
+            var pass = document.getElementById('Password');
+            var msg = document.getElementById('status');
+            msg.style.color = 'gray'
+            msg.innerHTML = 'Loging....'
+            setTimeout(function () {
+                if (user.value == "Rabindra" && pass.value == "1234") {
+                    msg.style.color = 'green';
+                    msg.innerHTML = 'Login Sucess';
+                    user.value = '';
+                    pass.value = '';
+                } else {
+                    msg.innerHTML = 'Wrong Password'
+                    msg.style.color = 'red'
+                }
+            }, 1000)
+            setTimeout(function(){
+                msg.innerHTML = '<br>';
+            },7000)
+        }
+    </script>
+</body>
+
+</html>
